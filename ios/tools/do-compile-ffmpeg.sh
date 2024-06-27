@@ -132,7 +132,7 @@ elif [ "$FF_ARCH" = "x86_64" ]; then
     FF_BUILD_NAME="ffmpeg-x86_64"
     FF_BUILD_NAME_OPENSSL=openssl-x86_64
     FF_XCRUN_PLATFORM="iPhoneSimulator"
-    FF_XCRUN_OSVERSION="-mios-simulator-version-min=7.0"
+    FF_XCRUN_OSVERSION="-mios-simulator-version-min=10.0"
     FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_SIMULATOR"
 elif [ "$FF_ARCH" = "armv7" ]; then
     FF_BUILD_NAME="ffmpeg-armv7"
@@ -153,7 +153,7 @@ elif [ "$FF_ARCH" = "armv7s" ]; then
 elif [ "$FF_ARCH" = "arm64" ]; then
     FF_BUILD_NAME="ffmpeg-arm64"
     FF_BUILD_NAME_OPENSSL=openssl-arm64
-    FF_XCRUN_OSVERSION="-miphoneos-version-min=7.0"
+    FF_XCRUN_OSVERSION="-miphoneos-version-min=10.0"
     FF_XCODE_BITCODE="-fembed-bitcode"
     FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
     FF_GASPP_EXPORT="GASPP_FIX_XCODE5=1"
@@ -195,6 +195,9 @@ FFMPEG_CFLAGS="$FFMPEG_CFLAGS -arch $FF_ARCH"
 FFMPEG_CFLAGS="$FFMPEG_CFLAGS $FF_XCRUN_OSVERSION"
 FFMPEG_CFLAGS="$FFMPEG_CFLAGS $FFMPEG_EXTRA_CFLAGS"
 FFMPEG_CFLAGS="$FFMPEG_CFLAGS $FF_XCODE_BITCODE"
+# xcode15 指针校验
+#FFMPEG_CFLAGS="$FFMPEG_CFLAGS -Wno-error=incompatible-function-pointer-types" 
+FFMPEG_CFLAGS="$FFMPEG_CFLAGS -Wno-error=incompatible-function-pointer-types -Wno-int-conversion"
 FFMPEG_LDFLAGS="$FFMPEG_CFLAGS"
 FFMPEG_DEP_LIBS=
 
