@@ -57,7 +57,7 @@
 			remoteGlobalIDString = 5450B0431E63EA4300568494;
 			remoteInfo = IJKMediaFrameworkWithSSL;
 		};
-		31B4764A2C2DCA4500CA4D1A /* PBXContainerItemProxy */ = {
+		31F94AF82C2FA3A800D0C5C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E6D74F2918A5F94B00165BFD /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 1;
@@ -305,7 +305,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				31B4764B2C2DCA4500CA4D1A /* PBXTargetDependency */,
+				31F94AF92C2FA3A800D0C5C8 /* PBXTargetDependency */,
 			);
 			name = IJKMediaDemo;
 			productName = IJKMediaDemo;
@@ -416,10 +416,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		31B4764B2C2DCA4500CA4D1A /* PBXTargetDependency */ = {
+		31F94AF92C2FA3A800D0C5C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IJKMediaFrameworkWithSSL;
-			targetProxy = 31B4764A2C2DCA4500CA4D1A /* PBXContainerItemProxy */;
+			targetProxy = 31F94AF82C2FA3A800D0C5C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -501,6 +501,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EXCLUDED_ARCHS = arm64;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IJKMediaDemo/IJKMediaDemo-Prefix.pch";
 				INFOPLIST_FILE = "IJKMediaDemo/IJKMediaDemo-Info.plist";

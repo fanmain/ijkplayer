@@ -222,6 +222,17 @@ void ijkmp_set_playback_rate(IjkMediaPlayer *mp, float rate)
     pthread_mutex_unlock(&mp->mutex);
     MPTRACE("%s()=void\n", __func__);
 }
+void ijkmp_set_syncType_speed(IjkMediaPlayer *mp, int type,float speed)
+{
+    assert(mp);
+
+    MPTRACE("%s(%f)\n", __func__, speed);
+    pthread_mutex_lock(&mp->mutex);
+    ffp_set_syncType_speed(mp->ffplayer, type, speed);
+    
+    pthread_mutex_unlock(&mp->mutex);
+    MPTRACE("%s()=void\n", __func__);
+}
 
 void ijkmp_set_playback_volume(IjkMediaPlayer *mp, float volume)
 {

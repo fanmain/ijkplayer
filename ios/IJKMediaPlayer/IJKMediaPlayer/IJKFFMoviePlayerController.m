@@ -33,6 +33,7 @@
 #import "NSString+IJKMedia.h"
 #import "ijkioapplication.h"
 #include "string.h"
+#import "ff_ffplay_def.h"
 
 static const char *kIJKFFRequiredFFmpegVersion = "ff4.0--ijk0.8.8--20210426--001";
 
@@ -766,6 +767,15 @@ inline static int getPlayerOption(IJKFFOptionCategory category)
     return _glView.fps;
 }
 
+- (int64_t)netSpeed
+{
+    if (!_mediaPlayer){
+        return 0;
+    }
+    int64_t tcpSpeed = ijkmp_get_property_int64(_mediaPlayer, FFP_PROP_INT64_TCP_SPEED, 0);
+    return tcpSpeed;
+}
+
 inline static NSString *formatedDurationMilli(int64_t duration) {
     if (duration >=  1000) {
         return [NSString stringWithFormat:@"%.2f sec", ((float)duration) / 1000];
@@ -950,8 +960,19 @@ inline static NSString *formatedSpeed(int64_t bytes, int64_t elapsed_milli) {
 {
     if (!_mediaPlayer)
         return;
+    
+    if (playbackRate > 2){
+        [self setSyncType:AV_SYNC_EXTERNAL_CLOCK speed:playbackRate];
+    }
 
     return ijkmp_set_playback_rate(_mediaPlayer, playbackRate);
+}
+
+- (void)setSyncType:(int)type speed:(float)speed
+{
+    if (!_mediaPlayer)
+        return;
+    ijkmp_set_syncType_speed(_mediaPlayer, type, speed);
 }
 
 - (float)playbackRate

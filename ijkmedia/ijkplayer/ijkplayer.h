@@ -173,6 +173,7 @@ void            ijkmp_set_option_int(IjkMediaPlayer *mp, int opt_category, const
 int             ijkmp_get_video_codec_info(IjkMediaPlayer *mp, char **codec_info);
 int             ijkmp_get_audio_codec_info(IjkMediaPlayer *mp, char **codec_info);
 void            ijkmp_set_playback_rate(IjkMediaPlayer *mp, float rate);
+void            ijkmp_set_syncType_speed(IjkMediaPlayer *mp, int type,float speed);
 void            ijkmp_set_playback_volume(IjkMediaPlayer *mp, float rate);
 
 int             ijkmp_set_stream_selected(IjkMediaPlayer *mp, int stream, int selected);

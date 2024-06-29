@@ -196,6 +196,11 @@
 {
     [self.mediaControl continueDragMediaSlider];
 }
+- (IBAction)playRateChanged:(UISegmentedControl *)sender {
+
+    NSLog(@"设置倍速-----%d",sender.selectedSegmentIndex+1);
+    [self.player setPlaybackRate:sender.selectedSegmentIndex+1];
+}
 
 - (void)loadStateDidChange:(NSNotification*)notification
 {
