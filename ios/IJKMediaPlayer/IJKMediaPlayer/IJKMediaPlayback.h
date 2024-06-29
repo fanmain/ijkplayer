@@ -74,6 +74,9 @@ typedef NS_ENUM(NSInteger, IJKMPMovieTimeOption) {
 - (BOOL)isPlaying;
 - (void)shutdown;
 - (void)setPauseInBackground:(BOOL)pause;
+//录像
+- (void)stopRecord;
+- (void)startRecordWithFileName:(NSString *)fileName;
 
 @property(nonatomic, readonly)  UIView *view;
 @property(nonatomic)            NSTimeInterval currentPlaybackTime;
@@ -164,6 +167,8 @@ IJK_EXTERN NSString *const IJKMPMoviePlayerDidAccurateSeekCompleteCurPos;
 IJK_EXTERN NSString *const IJKMPMoviePlayerAccurateSeekCompleteNotification;
 IJK_EXTERN NSString *const IJKMPMoviePlayerSeekAudioStartNotification;
 IJK_EXTERN NSString *const IJKMPMoviePlayerSeekVideoStartNotification;
+
+IJK_EXTERN NSString *const IJKMPMoviePlayerRealRecordStartNotification;
 
 @end
 
